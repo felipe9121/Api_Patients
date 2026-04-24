@@ -1,5 +1,31 @@
 API Patients - .NET
 
+**********************
+**********************
+SP QUE ME FALTO AÑADIR EN CODIGO:
+
+CREATE PROCEDURE [dbo].[sp_GetPatientsByFieldCreatedAt]
+    @FromDate DATETIME2
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT 
+        DocumentType,
+        DocumentNumber,
+        FirstName,
+        LastName,
+        PhoneNumber,
+        Email,
+        CreatedAt
+    FROM Patients
+    WHERE CreatedAt >= @FromDate
+    ORDER BY CreatedAt DESC;
+END
+
+**********************
+**********************
+
+
 API REST desarrollada en .NET para la gestión de una base de datos que contiene la entidad Patients.
 Permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre los registros de pacientes.
 
